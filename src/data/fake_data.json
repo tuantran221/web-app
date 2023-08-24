@@ -1,22 +1,23 @@
 {
     "TypeProduct": ["Truss","Glulam", "Laminated Strand Lumber", "Parallel Strand Lumber" ],
     "ListProduct": [
-        
         {
             "type": "Truss",
             "model": "LRU26Z",
             "installedCost": "Lowest",
             "width": "1.625",
             "height": "5.25",
-            "bearing": "1"
+            "bearing": "1",
+            "slope": "49"
         },
         {
             "type": "Truss",
-            "model": "LRU26Z",
+            "model": "LSSJ26LZ",
             "installedCost": "+263.00%",
             "width": "1.625",
             "height": "5.25",
-            "bearing": "1"
+            "bearing": "1",
+             "slope": "0"
         },
         {
             "type": "Truss",
@@ -24,7 +25,8 @@
             "installedCost": "Lowest",
             "width": "1.625",
             "height": "5.25",
-            "bearing": "1"
+            "bearing": "1",
+            "slope": "-49"
         },
         {
             "type": "Glulam",

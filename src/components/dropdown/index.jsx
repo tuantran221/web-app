@@ -5,14 +5,17 @@ import SelectContext from "../../context/Context";
 
 const DropDown = () => {
   const selected = useContext(SelectContext);
+  // console.log(selected)
+
 
   const handleUpdateSelected = (e) => {
-    selected.setSelectedValue(e.target.value);
+    selected.setDropdownSelect(e.target.value);
+    selected.setIsDisable(!(selected.isdisable))
   };
 
   return (
     <div className="dropdown-wrapper">
-      <select onChange={handleUpdateSelected} className="select-wrapper">
+      <select onChange={handleUpdateSelected} className="select-wrapper" disabled={false} >
         {data.TypeProduct.map((item, index) => (
           <option key={index} value={item}>
             {item}

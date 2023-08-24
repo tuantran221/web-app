@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import down from "../../assets/icons8-down.png";
 import up from "../../assets/icons8-up.png";
 import "./style.css";
+import SelectContext from "../../context/Context";
 const Input = () => {
   var initValue = 0;
+
   const [sliderValue, setSliderValue] = useState(initValue);
-  console.log("slidervalue", sliderValue);
+  // console.log("slider", sliderValue)
+  const selected = useContext(SelectContext);
+  console.log("selected", selected);
 
   const handleSliderChange = (newValue) => {
     setSliderValue(newValue);
   };
   const handleInputChange = (e) => {
     let newValue = e.target.value;
-    // if (newValue >= -49 && newValue <= 49) {
-    //   setSliderValue(newValue);
-    // }
     setSliderValue(newValue);
   };
 
   const handleOptionChange = (val) => {
     setSliderValue(val);
+    selected.setBarSelect(val);
+    console.log(val);
   };
 
   const IncrementValue = () => {
@@ -37,10 +40,10 @@ const Input = () => {
   return (
     <div className="input">
       <div className="slider-container">
-        {/* <label className="slider-value">-49</label> */}
         <input
           type="range"
-          className="slider"
+          className={selected.isdisable ? "slider-disable" : "slider"}
+          disabled={selected.isdisable}
           list="values"
           value={sliderValue}
           onChange={(e) => handleSliderChange(e.target.value)}
@@ -49,22 +52,27 @@ const Input = () => {
         />
         <datalist id="values">
           <option
+            className={selected.isdisable? "datalist-option-disable" : "datalist-option"}
+            disabled={selected.isdisable}
             value="-49"
             label="-49"
-            onClick={() => handleOptionChange(-49)}
+            onClick={() => handleOptionChange("-49")}
           ></option>
           <option
+            className={selected.isdisable? "datalist-option-disable" : "datalist-option"}
+            disabled={selected.isdisable}
             value="0"
             label="0"
-            onClick={() => handleOptionChange(0)}
+            onClick={() => handleOptionChange("0")}
           ></option>
           <option
+            className={selected.isdisable? "datalist-option-disable" : "datalist-option"}
+            disabled={selected.isdisable}
             value="49"
             label="49"
-            onClick={() => handleOptionChange(49)}
+            onClick={() => handleOptionChange("49")}
           ></option>
         </datalist>
-        {/* <label className="slider-value">49</label> */}
       </div>
 
       <div className="input-wrapper">

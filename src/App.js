@@ -1,19 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "./App.css";
 import Input from "./components/input";
 import DropDown from "./components/dropdown";
 import Table from "./components/table";
-import DataContext from './context/Context';
+// import DataContext from './context/Context';
+import { SelectProvider } from './context/Context';
 
 function App() {
-  const [selectedValue, setSelectedValue] = useState("Truss"); // Set initial value to 'Truss'
-  // console.log(selectedValue)
-  const updateValue = (newValue) => {
-    setSelectedValue(newValue);
-  };
+
   return (
 
-   <DataContext.Provider value={{ selectedValue, updateValue }}>
+   <SelectProvider>
     <div className="app">
       <div className="app-left-wrapper">
         <div className="app-dropdown-wrapper">
@@ -26,7 +23,7 @@ function App() {
         <Table/>
       </div>
     </div>
-   </DataContext.Provider>
+   </SelectProvider>
 
  
   );

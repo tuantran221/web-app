@@ -1,19 +1,5 @@
 {
-    "TypeProduct": [
-        {
-            "type": "Truss"
-        },
-        {
-            "type": "Glulam"
-        },
-        {
-            "type":"Laminated Strand Lumber"
-        },
-        {
-            "type":"Parallel Strand Lumber"
-        }
-      
-],
+    "TypeProduct": ["Truss","Glulam", "Laminated Strand Lumber", "Parallel Strand Lumber" ],
     "ListProduct": [
         
         {

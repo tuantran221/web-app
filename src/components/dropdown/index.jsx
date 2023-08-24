@@ -1,27 +1,21 @@
-import React, { useState,useContext } from "react";
+import React, { useContext } from "react";
 import "./style.css";
 import data from "../../data/fake_data.json";
-import DataContext from "../../context/Context";
+import SelectContext from "../../context/Context";
 
 const DropDown = () => {
+  const selected = useContext(SelectContext);
 
-  const [option, setOption] = useState();
-  console.log(option)
-
-  const { updateValue } = useContext(DataContext); 
-
-
-  const handleValueOption = (e) => {
-    setOption(e.target.value);
-    setOption(updateValue)
+  const handleUpdateSelected = (e) => {
+    selected.setSelectedValue(e.target.value);
   };
 
   return (
     <div className="dropdown-wrapper">
-      <select onChange={handleValueOption} className="select-wrapper">
+      <select onChange={handleUpdateSelected} className="select-wrapper">
         {data.TypeProduct.map((item, index) => (
-          <option key={index} value={item.type}>
-            {item.type}
+          <option key={index} value={item}>
+            {item}
           </option>
         ))}
       </select>

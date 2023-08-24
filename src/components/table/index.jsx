@@ -5,7 +5,6 @@ import SelectContext from "../../context/Context";
 const Table = () => {
 
   const value = useContext(SelectContext)
-  console.log(value.barSelect === "0")
 
   const Display = data.ListProduct.map((item, index) => {
     if (item.type === value.dropdownSelect && item.slope === value.barSelect){

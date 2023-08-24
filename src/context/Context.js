@@ -6,6 +6,7 @@ export const SelectProvider = ({ children }) => {
   const [dropdownSelect, setDropdownSelect] = useState("Truss");
   const [barSelect, setBarSelect] = useState(0);
   const [isdisable, setIsDisable] = useState(false);
+  const [dropDisable, setdropDisable] = useState(false)
 
   return (
     <SelectContext.Provider
@@ -13,9 +14,11 @@ export const SelectProvider = ({ children }) => {
         dropdownSelect,
         isdisable,
         barSelect,
+        dropDisable,
         setBarSelect,
         setIsDisable,
         setDropdownSelect,
+        setdropDisable
       }}
     >
       {children}

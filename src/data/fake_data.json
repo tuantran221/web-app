@@ -8,7 +8,7 @@
             "width": "1.625",
             "height": "5.25",
             "bearing": "1",
-            "slope": "49"
+            "slope": 32
         },
         {
             "type": "Truss",
@@ -17,7 +17,7 @@
             "width": "1.625",
             "height": "5.25",
             "bearing": "1",
-             "slope": "0"
+             "slope": 0
         },
         {
             "type": "Truss",
@@ -26,7 +26,7 @@
             "width": "1.625",
             "height": "5.25",
             "bearing": "1",
-            "slope": "-49"
+            "slope": -49
         },
         {
             "type": "Glulam",
@@ -34,7 +34,8 @@
             "installedCost": "+263.00%",
             "width": "1.625",
             "height": "5.25",
-            "bearing": "1"
+            "bearing": "1",
+            "slope": -49
         },
         {
             "type": "Laminated Strand Lumber",
@@ -42,7 +43,8 @@
             "installedCost": "30.00%    ",
             "width": "1.625",
             "height": "5.25",
-            "bearing": "1"
+            "bearing": "1",
+            "slope": 49
         },
         {
             "type": "Parallel Strand Lumber",
@@ -50,7 +52,8 @@
             "installedCost": "+27.00%",
             "width": "1.625",
             "height": "5.25",
-            "bearing": "1"
+            "bearing": "1",
+            "slope": 0
         },
         {
             "type": "Parallel Strand Lumber",
@@ -58,7 +61,8 @@
             "installedCost": "+27.00%",
             "width": "1.625",
             "height": "5.25",
-            "bearing": "1"
+            "bearing": "1",
+            "slope": -49
         }
     ]
 }

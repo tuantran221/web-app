@@ -15,7 +15,7 @@ const DropDown = () => {
 
   return (
     <div className="dropdown-wrapper">
-      <select onChange={handleUpdateSelected} className="select-wrapper" disabled={false} >
+      <select onChange={handleUpdateSelected} className="select-wrapper" disabled={selected.dropDisable} >
         {data.TypeProduct.map((item, index) => (
           <option key={index} value={item}>
             {item}

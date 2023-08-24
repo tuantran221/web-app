@@ -1,41 +1,35 @@
 import React, { useState, useContext } from "react";
-import down from "../../assets/icons8-down.png";
-import up from "../../assets/icons8-up.png";
 import "./style.css";
 import SelectContext from "../../context/Context";
+// import data from "../../data/fake_data.json";
 const Input = () => {
   var initValue = 0;
 
   const [sliderValue, setSliderValue] = useState(initValue);
-  // console.log("slider", sliderValue)
-  const selected = useContext(SelectContext);
-  console.log("selected", selected);
 
-  const handleSliderChange = (newValue) => {
-    setSliderValue(newValue);
+  // console.log("slider", sliderValue);
+  const selected = useContext(SelectContext);
+  // console.log("selected", selected);
+
+  // ------------- function handle action input bar --------------------
+  const handleSliderChange = (val) => {
+    setSliderValue(val);
+    selected.setBarSelect(parseInt(val));
+    selected.setdropDisable(true);
   };
+
   const handleInputChange = (e) => {
-    let newValue = e.target.value;
-    setSliderValue(newValue);
+    let val = e.target.value;
+    setSliderValue(val);
+    selected.setBarSelect(parseInt(val));
   };
 
   const handleOptionChange = (val) => {
     setSliderValue(val);
     selected.setBarSelect(val);
-    console.log(val);
   };
 
-  const IncrementValue = () => {
-    if (sliderValue < 49) {
-      setSliderValue((prevValue) => parseInt(prevValue) + 1);
-    }
-  };
-
-  const DecrementValue = () => {
-    if (sliderValue > -49) {
-      setSliderValue((prevValue) => parseInt(prevValue) - 1);
-    }
-  };
+  // --------------------------------------
 
   return (
     <div className="input">
@@ -47,46 +41,61 @@ const Input = () => {
           list="values"
           value={sliderValue}
           onChange={(e) => handleSliderChange(e.target.value)}
-          min="-49"
-          max="49"
+          min={parseInt("-49")}
+          max={parseInt("49")}
         />
         <datalist id="values">
           <option
-            className={selected.isdisable? "datalist-option-disable" : "datalist-option"}
+            className={
+              selected.isdisable ? "datalist-option-disable" : "datalist-option"
+            }
             disabled={selected.isdisable}
-            value="-49"
+            value={-49}
             label="-49"
-            onClick={() => handleOptionChange("-49")}
+            onClick={() => handleOptionChange(-49)}
           ></option>
           <option
-            className={selected.isdisable? "datalist-option-disable" : "datalist-option"}
+            className={
+              selected.isdisable ? "datalist-option-disable" : "datalist-option"
+            }
             disabled={selected.isdisable}
-            value="0"
+            value={0}
             label="0"
-            onClick={() => handleOptionChange("0")}
+            onClick={() => handleOptionChange(0)}
           ></option>
           <option
-            className={selected.isdisable? "datalist-option-disable" : "datalist-option"}
+            className={
+              selected.isdisable ? "datalist-option-disable" : "datalist-option"
+            }
             disabled={selected.isdisable}
-            value="49"
+            value={49}
             label="49"
-            onClick={() => handleOptionChange("49")}
+            onClick={() => handleOptionChange(49)}
           ></option>
         </datalist>
+        <div
+          className={
+            sliderValue > 49
+              ? "input-validation-true"
+              : "input-validation" && sliderValue < -49
+              ? "input-validation-true"
+              : "input-validation"
+          }
+        >
+          <p>Please enter a value between -49 and 49</p>
+        </div>
       </div>
 
       <div className="input-wrapper">
-        <div className="input-wrapper-text">
-          <input value={sliderValue} onInput={handleInputChange} />
-          <div className="input-wrapper-btn">
-            <button onClick={IncrementValue} className="input-btn">
-              <img src={up} alt="up" className="icon-btn" />
-            </button>
-            <button onClick={DecrementValue} className="input-btn">
-              <img src={down} alt="down" className="icon-btn" />
-            </button>
-          </div>
-        </div>
+        <input
+          type="number"
+          min={parseInt("-49")}
+          max={parseInt("49")}
+          value={sliderValue}
+          onInput={handleInputChange}
+          disabled={selected.isdisable}
+          className={selected.isdisable ? "input-field-disable" : "input-field"}
+        />
       </div>
     </div>
   );

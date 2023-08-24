@@ -1,0 +1,23 @@
+.app{
+  box-sizing: border-box;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  height: 100vh;
+  column-gap: 60px;
+}
+
+.app-left-wrapper{
+  border: 1px solid;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 20px;
+  padding: 10px;
+
+}
+.app-dropdown-wrapper{
+  
+}
+.app-table-wrapper{
+
+}

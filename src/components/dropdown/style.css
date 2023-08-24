@@ -1,0 +1,12 @@
+.dropdown-wrapper{
+    /* width: 400px; */
+}
+.select-wrapper{
+    width: 400px;
+    height: 25px;
+    padding: 3px;
+    border: none;
+    background-color: #e2e2e2;
+    border-radius: 2px;
+
+}

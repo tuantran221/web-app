@@ -1,9 +1,9 @@
 import React from 'react';
 import "./App.css";
-import Input from "./components/input";
+import Input from "./components/sliderbar";
 import DropDown from "./components/dropdown";
 import Table from "./components/table";
-// import DataContext from './context/Context';
+
 import { SelectProvider } from './context/Context';
 
 function App() {

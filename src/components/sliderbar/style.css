@@ -1,4 +1,4 @@
-.input {
+.slider-wrapper {
     display: flex;
     align-items: center;
 
@@ -16,7 +16,6 @@ datalist {
     display: flex;
     justify-content: space-between;
     writing-mode: horizontal-tb;
-    ;
     width: 400px;
     margin-top: 1rem;
 }
@@ -72,9 +71,17 @@ datalist {
 /* -------------------------- */
 .input-wrapper {
     display: flex;
-    margin-left: 4rem;
+    margin-left: 2rem;
     width: 20px;
     margin-top: -2.5rem;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  height: 15px;
+  width: 20px;
+  scale: 1.6;
+  cursor: pointer;
 }
 
 /* input text css */
@@ -98,10 +105,11 @@ datalist {
     width: 40px;
     border: none;
     outline: none;
-    padding: 8px;
+    padding: 13px 5px 0 13px;
+    border-bottom: 1.5px solid #df9643;
 }
 
-.input-validation {
+.validation {
     position: absolute;
     left: 0;
     margin-top: 3rem;
@@ -110,7 +118,7 @@ datalist {
     display: none;
 }
 
-.input-validation-true {
+.notvalidation {
     position: absolute;
     left: 0;
     margin-top: 3rem;

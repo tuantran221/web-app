@@ -4,13 +4,13 @@ import Input from "./components/sliderbar";
 import DropDown from "./components/dropdown";
 import Table from "./components/table";
 
-import { SelectProvider } from './context/Context';
+import { StateProvider } from './context/Context';
 
 function App() {
 
   return (
 
-   <SelectProvider>
+   <StateProvider>
     <div className="app">
       <div className="app-left-wrapper">
         <div className="app-dropdown-wrapper">
@@ -23,7 +23,7 @@ function App() {
         <Table/>
       </div>
     </div>
-   </SelectProvider>
+   </StateProvider>
 
  
   );

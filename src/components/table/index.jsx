@@ -1,13 +1,14 @@
 import React, {useContext} from "react";
 import "./style.css";
 import data from "../../data/fake_data.json";
-import SelectContext from "../../context/Context";
+import StateContext from "../../context/Context";
+
 const Table = () => {
 
-  const value = useContext(SelectContext)
+  const value = useContext(StateContext)
 
   const Display = data.ListProduct.map((item, index) => {
-    if (item.type === value.dropdownSelect && item.slope === value.barSelect){
+    if (item.type === value.dropdownValue && item.slope === value.sliderValue){
       return (
         <tr key={index}>
           <td>{item.model}</td>

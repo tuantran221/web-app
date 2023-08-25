@@ -1,29 +1,29 @@
 import { createContext, useState } from "react";
 
-const SelectContext = createContext();
+const StateContext = createContext();
 
-export const SelectProvider = ({ children }) => {
-  const [dropdownSelect, setDropdownSelect] = useState("Truss");
-  const [barSelect, setBarSelect] = useState(0);
-  const [isdisable, setIsDisable] = useState(false);
-  const [dropDisable, setdropDisable] = useState(false)
+export const StateProvider = ({ children }) => {
+  const [dropdownValue, setDropdownValue] = useState("Truss");
+  const [sliderValue, setSliderValue] = useState(0);
+  const [sliderDisable, setSliderDisable] = useState(false);
+  const [dropDisable, setDropDisable] = useState(false)
 
   return (
-    <SelectContext.Provider
+    <StateContext.Provider
       value={{
-        dropdownSelect,
-        isdisable,
-        barSelect,
+        dropdownValue,
+        sliderValue,
+        sliderDisable,
         dropDisable,
-        setBarSelect,
-        setIsDisable,
-        setDropdownSelect,
-        setdropDisable
+        setSliderValue,
+        setDropdownValue,
+        setDropDisable,
+        setSliderDisable,
       }}
     >
       {children}
-    </SelectContext.Provider>
+    </StateContext.Provider>
   );
 };
 
-export default SelectContext;
+export default StateContext;

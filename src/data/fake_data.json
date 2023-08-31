@@ -8,7 +8,7 @@
             "width": "1.625",
             "height": "5.25",
             "bearing": "1",
-            "slope": 49
+            "slope": -49
         },
         {
             "type": "Truss",
@@ -35,7 +35,7 @@
             "width": "1.625",
             "height": "5.25",
             "bearing": "1",
-            "slope": -49
+            "slope": 49
         },
         {
             "type": "Glulam",

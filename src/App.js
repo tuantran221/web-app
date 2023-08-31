@@ -1,6 +1,6 @@
 import React from 'react';
 import "./App.css";
-import Input from "./components/sliderbar";
+import Slider from "./components/sliderbar";
 import DropDown from "./components/dropdown";
 import Table from "./components/table";
 
@@ -16,7 +16,7 @@ function App() {
         <div className="app-dropdown-wrapper">
         <DropDown />
         </div>
-       <div className="app-dreo"> <Input /></div>
+       <div className="app-dreo"> <Slider /></div>
        
       </div>
       <div className="app-table-wrapper">

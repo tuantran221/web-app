@@ -11,7 +11,7 @@ const Slider = () => {
 // ----------- context state ------------
 
   const selected = useContext(StateContext);
-
+  console.log("re-rendering")
   // ------------- function handle action input bar --------------------
   const handleSliderChange =  (val) => {
     let value = parseInt(val)

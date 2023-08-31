@@ -1,6 +1,3 @@
-.dropdown-wrapper{
-    /* width: 400px; */
-}
 
 .select-wrapper{
     width: 400px;
@@ -14,5 +11,4 @@
 }
 option {
     background-color: rgb(255, 255, 255);
-   
 }

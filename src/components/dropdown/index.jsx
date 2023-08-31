@@ -7,15 +7,18 @@ const DropDown = () => {
   const selected = useContext(StateContext);
   // console.log(selected)
 
-
   const handleUpdateSelected = (e) => {
     selected.setDropdownValue(e.target.value);
-    selected.setSliderDisable(!(selected.sliderDisable))
+    selected.setSliderDisable(!selected.sliderDisable);
   };
 
   return (
     <div className="dropdown-wrapper">
-      <select  onChange={handleUpdateSelected} className="select-wrapper" disabled={selected.dropDisable} >
+      <select
+        onChange={handleUpdateSelected}
+        className="select-wrapper"
+        disabled={selected.dropDisable}
+      >
         {data.TypeProduct.map((item, index) => (
           <option key={index} value={item}>
             {item}

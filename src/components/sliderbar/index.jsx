@@ -1,63 +1,71 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useRef } from "react";
 import "./style.css";
 import StateContext from "../../context/Context";
-import data from "../../data/fake_data.json";
+
 const Slider = () => {
-  var datalistValue = [-49, 0, 49];
-  var ListSlope = [];
-  data.ListProduct.map((item) => {
-   return  ListSlope.push(item.slope)
-  })
-// ----------- context state ------------
+
+  let dataListValue = [-49, 0, 49];
+
+  let valueRef = useRef('')
+  const handleGetTextClick = () => {
+    const inputValue = valueRef;
+    console.log('input value:', inputValue);
+  };
+
+
+  // ----------- context state -----------------------------------------
 
   const selected = useContext(StateContext);
-  console.log("re-rendering")
-  // ------------- function handle action input bar --------------------
-  const handleSliderChange =  (val) => {
-    let value = parseInt(val)
-    selected.setSliderValue(value);
+  const [tabTimeoutIds, setTabTimeoutIds] = useState([]);
 
-    let isDisable = ListSlope.some(item => item === value);
-    if(isDisable === true){
-      selected.setDropDisable(false)
-    }else selected.setDropDisable(true)
-    
-   
-  };
+  // ------------- function handle action input bar --------------------
+
+  const handleSliderChange = (value) => {
+    // clear previous timeout
+    tabTimeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
+    setTabTimeoutIds([]);
+
+    // set state with delay time
+    const timeoutId = setTimeout(() => {
+      selected.setSliderValue(parseInt(value));
+      console.log("Value", value);
+    }, 500);
+
+    // Add new timeout id
+    setTabTimeoutIds((prevTabTimeoutIds) => [...prevTabTimeoutIds, timeoutId]);
+  };  
+
+  // ---------------- functions handle state ------------------------
 
   const handleInputChange = (e) => {
     let val = e.target.value;
-    console.log(val)
     selected.setSliderValue(parseInt(val));
   };
 
   const handleOptionChange = (val) => {
-    let value = parseInt(val)
+    let value = parseInt(val);
     selected.setSliderValue(value);
-   
   };
 
-  // --------------------------------------
+  // -----------------------------------------------
 
   return (
     <div className="slider-wrapper">
-    
       <div className="slider-container">
-    
-      <input
+        <input
           type="range"
           id="slider"
           className={selected.sliderDisable ? "slider-disable" : "slider"}
           disabled={selected.sliderDisable}
           list="values"
-          value={selected.sliderValue}
+          // value={selected.sliderValue}
           onChange={(e) => handleSliderChange(e.target.value)}
           min={parseInt("-49")}
           max={parseInt("49")}
         />
-       
+
         <datalist id="values">
-          {datalistValue.map((item, index) => (
+          {dataListValue.map((item, index) => (
             <option
               key={index}
               className={
@@ -72,7 +80,11 @@ const Slider = () => {
             ></option>
           ))}
         </datalist>
-        
+
+        <input ref={valueRef}  />
+        <button onClick={handleGetTextClick}>Get Input Value</button>
+    
+
         <div
           className={
             selected.sliderValue > 49 || selected.sliderValue < -49
@@ -82,7 +94,13 @@ const Slider = () => {
         >
           <p>Please enter a value between -49 and 49</p>
         </div>
-        <div className={isNaN(selected.sliderValue) ? "notvalidation" :  "validation" }><p>Slope Angle is a required field.</p></div>
+        <div
+          className={
+            isNaN(selected.sliderValue) ? "notvalidation" : "validation"
+          }
+        >
+          <p>Slope Angle is a required field.</p>
+        </div>
       </div>
 
       <div className="input-wrapper">
@@ -91,7 +109,7 @@ const Slider = () => {
           min={parseInt("-49")}
           max={parseInt("49")}
           value={selected.sliderValue}
-          onInput={handleInputChange}
+          onChange={handleInputChange}
           disabled={selected.sliderDisable}
           className={
             selected.sliderDisable ? "input-field-disable" : "input-field"
